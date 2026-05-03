@@ -19,8 +19,8 @@
         "cells": [
           {
             "position": {
-              "x": -276,
-              "y": -139.9999999999693
+              "x": -350,
+              "y": -40
             },
             "size": {
               "width": 1880,
@@ -28,8 +28,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "536797a6-d1e3-451c-9d7e-b4f82429f1d5",
             "zIndex": -1,
+            "id": "536797a6-d1e3-451c-9d7e-b4f82429f1d5",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -773,7 +773,7 @@
           },
           {
             "position": {
-              "x": 713,
+              "x": 694,
               "y": 160
             },
             "size": {
@@ -1683,78 +1683,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "DF7\n",
-              "description": "anonymous SELECT (scoreboard accessible without login)",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b36bbe15-412e-4f4b-9033-bf54dcd87f8e",
-                  "title": "Information Disclosure: anonymous account enumeration",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Scoreboard is shown to unauthenticated users from the main menu, leaking the existence and activity of every account.",
-                  "mitigation": "R3",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 10,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [],
-              "threatFrequency": {
-                "tampering": 0,
-                "informationDisclosure": 1,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "DF7"
-            ],
-            "id": "6afb6da1-10a9-4fe8-b2c2-98ee1d926efd",
-            "source": {
-              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
-              "port": "bc43cbd7-a975-44ec-a9eb-09e814be2473"
-            },
-            "target": {
-              "cell": "10cbfd64-1ff5-4ebd-b828-e84f3161f402",
-              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
-            },
-            "vertices": [
-              {
-                "x": 540,
-                "y": 130
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "DF8\n",
               "description": "Player 2 cleartext password handed to Player 1's session — design flaw, Issue #3",
               "outOfScope": false,
@@ -1868,6 +1796,10 @@
               {
                 "x": 380,
                 "y": 210
+              },
+              {
+                "x": 330,
+                "y": 260
               }
             ]
           },
@@ -1928,53 +1860,6 @@
             ]
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "DF11\n",
-              "description": "Player 1 click (X turn)",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "DF11"
-            ],
-            "id": "85a2cd52-e2b0-4233-a690-4c69d1d44627",
-            "source": {
-              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
-              "port": "236bd5a1-0741-4654-b307-8b3bc8c49818"
-            },
-            "target": {
-              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
-              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
-            },
-            "vertices": []
-          },
-          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -2024,7 +1909,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "DF12",
+              "name": "DF12\n",
               "description": "opponent password forwarded to authenticate_user",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2057,7 +1942,7 @@
               }
             },
             "labels": [
-              "DF1"
+              "DF12"
             ],
             "id": "356e408d-a0f9-4b77-adaf-9d8366cc0bb9",
             "source": {
@@ -2072,6 +1957,729 @@
               {
                 "x": 440,
                 "y": 250
+              },
+              {
+                "x": 510,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF13\n",
+              "description": "game state (board, current_player) passed for click handling",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "9a89b2bf-47d0-4dee-b3d4-99246aeefc55",
+                  "title": "Tampering: in-process state",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "State only modifiable by debugger access on the host machine. Acceptable risk.",
+                  "mitigation": " ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF13"
+            ],
+            "id": "59941bcf-40d6-48fa-bced-7f7f80ab004b",
+            "source": {
+              "cell": "68cc98e2-bf2e-49bc-932e-502dad1dec43",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF14\n",
+              "description": "winner string (in-process result)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "06faeef5-bf05-4019-acd1-d43397955951",
+                  "title": "Tampering: winner derived from possibly-tampered state",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "If P6's state was restored from a tampered save (DF20), the winner string passed here reflects that tampering.",
+                  "mitigation": "R4",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                },
+                {
+                  "id": "6b33c965-4cdb-403b-9684-9a97ff22f0fe",
+                  "title": "Repudiation: no audit log of game results",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "No log of who actually played; cheating cannot be detected after the fact.",
+                  "mitigation": "R7",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF14"
+            ],
+            "id": "77f86fec-63ac-4a07-9345-9c7e5319e34b",
+            "source": {
+              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "bdca9cbc-1453-4f2c-8f2c-9b070ac80a4d",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF14b\n",
+              "description": "INSERT games + UPDATE wins/losses (no auth check)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1bb79d4f-475e-4c07-b22b-f650328db197",
+                  "title": "Tampering: stat updates write to other users' rows",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "UPDATE users SET wins=wins+1 WHERE username=? executes against whatever username was loaded. A tampered save can cause writes to any user's stats.",
+                  "mitigation": "R3,R4",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                },
+                {
+                  "id": "c1197c05-e201-4726-89f2-24a8e1bd61cf",
+                  "title": "Repudiation: no record of who actually played",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Games row is inserted with SQLite-default timestamp; no audit trail of the player who initiated.",
+                  "mitigation": "R7",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF14b"
+            ],
+            "id": "7287e931-4866-425f-a437-f74d6063335e",
+            "source": {
+              "cell": "bdca9cbc-1453-4f2c-8f2c-9b070ac80a4d",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "114edae1-dbaa-439a-aebc-fed420f10b9e",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": [
+              {
+                "x": 820,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF15\n",
+              "description": "click Save",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF15"
+            ],
+            "id": "f32b0eb3-a429-4ed4-bca5-59bd006788dc",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "62fb67cf-7d43-428b-aa78-31a4be30821d"
+            },
+            "target": {
+              "cell": "fbd05c30-df94-4c37-9e18-42b414307151",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": [
+              {
+                "x": -30,
+                "y": 370
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF16\n",
+              "description": "write JSON (no MAC, no schema check)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "906255cb-2e6a-4e31-9353-9db863ec6ed2",
+                  "title": "Tampering: save file has no integrity protection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Saved game is written as plain JSON. Any local user (including the saver) can edit board[], swap player_x and player_o, or set current_player to manipulate a future load.",
+                  "mitigation": "R4",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF16"
+            ],
+            "id": "76f79e5f-62ee-4693-9a2b-4a2bc7aaa445",
+            "source": {
+              "cell": "fbd05c30-df94-4c37-9e18-42b414307151",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "80d47d97-ee5e-43da-9284-179fa44a19d5",
+              "port": "5009ff2e-41dc-40f9-8b8e-88e443bd493e"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF17",
+              "description": "messagebox reveals game_id on save",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "38b224df-7af0-4f91-b2e5-1b5b736a8eec",
+                  "title": "Information Disclosure: UUID disclosed to both players",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "New game UUID is shown on screen after every save. Combined with no access control on load_game, a shoulder-surfer or screenshot lets another player resume the game.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF1"
+            ],
+            "id": "7e8568f8-67a1-472c-9034-912159469d42",
+            "source": {
+              "cell": "fbd05c30-df94-4c37-9e18-42b414307151",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "ef064b0d-b190-4699-a6be-4be7b3ae3b6a",
+              "port": "7386fc64-b73d-43da-a759-f69fb447de45"
+            },
+            "vertices": [
+              {
+                "x": 570,
+                "y": 441
+              },
+              {
+                "x": 770,
+                "y": 510
+              },
+              {
+                "x": 910,
+                "y": 530
+              },
+              {
+                "x": 1020,
+                "y": 530
+              },
+              {
+                "x": 1090,
+                "y": 460
+              },
+              {
+                "x": 1090,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF7\n",
+              "description": "anonymous SELECT (scoreboard accessible without login)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b36bbe15-412e-4f4b-9033-bf54dcd87f8e",
+                  "title": "Information Disclosure: anonymous account enumeration",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Scoreboard is shown to unauthenticated users from the main menu, leaking the existence and activity of every account.",
+                  "mitigation": "R3",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF7"
+            ],
+            "id": "6afb6da1-10a9-4fe8-b2c2-98ee1d926efd",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "bc43cbd7-a975-44ec-a9eb-09e814be2473"
+            },
+            "target": {
+              "cell": "10cbfd64-1ff5-4ebd-b828-e84f3161f402",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "vertices": [
+              {
+                "x": 540,
+                "y": 130
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF11\n",
+              "description": "Player 1 click (X turn)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF11"
+            ],
+            "id": "85a2cd52-e2b0-4233-a690-4c69d1d44627",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "236bd5a1-0741-4654-b307-8b3bc8c49818"
+            },
+            "target": {
+              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "vertices": [
+              {
+                "x": 30,
+                "y": 320
+              },
+              {
+                "x": 370,
+                "y": 400
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF18\n",
+              "description": "game_id input (no validation, allows path traversal)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6e020ab3-ff1f-4d65-9000-19e372e25b52",
+                  "title": "Tampering: path traversal via unvalidated input",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Unvalidated game_id is concatenated into a filesystem path. Payloads like ../tictactoe.db escape the savegames folder.",
+                  "mitigation": "R3",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF18"
+            ],
+            "id": "e1a63dc4-6dfc-44f3-9714-a3b0f4cec10a",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "62fb67cf-7d43-428b-aa78-31a4be30821d"
+            },
+            "target": {
+              "cell": "f4a4fb8b-b842-457f-87c2-fded538b615b",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": [
+              {
+                "x": -150,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF19\n",
+              "description": "read JSON (no validation, no ownership check)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ce7dfcfb-268d-4988-a707-162ffc026468",
+                  "title": "Tampering: JSON assigned without schema check",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "JSON is parsed and assigned directly to self.board, self.current_user, self.opponent with no type or range validation.",
+                  "mitigation": "R4",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF19"
+            ],
+            "id": "55d54dbb-2ae0-4fc4-8821-1aae3f0f0488",
+            "source": {
+              "cell": "80d47d97-ee5e-43da-9284-179fa44a19d5",
+              "port": "7386fc64-b73d-43da-a759-f69fb447de45"
+            },
+            "target": {
+              "cell": "f4a4fb8b-b842-457f-87c2-fded538b615b",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "vertices": [
+              {
+                "x": 1170,
+                "y": 570
+              },
+              {
+                "x": 670,
+                "y": 570
               }
             ]
           },
@@ -2933,6 +3541,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 13
+    "threatTop": 22
   }
 }
