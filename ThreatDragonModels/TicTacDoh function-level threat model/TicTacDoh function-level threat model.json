@@ -19,6 +19,46 @@
         "cells": [
           {
             "position": {
+              "x": -276,
+              "y": -139.9999999999693
+            },
+            "size": {
+              "width": 1880,
+              "height": 760
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "536797a6-d1e3-451c-9d7e-b4f82429f1d5",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": [
+                "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+                "e40755ec-7806-40d8-b017-41a1e7898385",
+                "1fc4eabe-7ecf-44cd-9353-e9fb0def769c",
+                "72a8aaeb-9a7a-48a9-8f08-5311145c3644",
+                "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+                "10cbfd64-1ff5-4ebd-b828-e84f3161f402",
+                "ed62e184-e1be-472f-89b9-fb69ecd2706f",
+                "99d32f53-605f-48bd-b7e7-5483d2729ea0",
+                "68cc98e2-bf2e-49bc-932e-502dad1dec43",
+                "1c559c28-29ca-45ee-995d-72d65756edfd",
+                "bdca9cbc-1453-4f2c-8f2c-9b070ac80a4d",
+                "fbd05c30-df94-4c37-9e18-42b414307151",
+                "f4a4fb8b-b842-457f-87c2-fded538b615b",
+                "114edae1-dbaa-439a-aebc-fed420f10b9e",
+                "ef064b0d-b190-4699-a6be-4be7b3ae3b6a",
+                "80d47d97-ee5e-43da-9284-179fa44a19d5"
+              ]
+            }
+          },
+          {
+            "position": {
               "x": 40,
               "y": 100
             },
@@ -1092,93 +1132,6 @@
             }
           },
           {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "TB1\n",
-              "description": "User to App boundary. Separates external entities (keyboard input) from the running Python process.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "TB1"
-            ],
-            "id": "8e11a969-5600-44fc-8fe3-2f4a2df56e4c",
-            "source": {
-              "x": 190,
-              "y": 40
-            },
-            "target": {
-              "x": 190,
-              "y": 370
-            },
-            "vertices": []
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "TB2\n",
-              "description": "App to Filesystem boundary. Separates the running process from the local filesystem.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "TB2"
-            ],
-            "id": "34f5fbf7-b954-4d6c-afaf-c97fac313612",
-            "source": {
-              "x": 840,
-              "y": 40
-            },
-            "target": {
-              "x": 840,
-              "y": 360
-            },
-            "vertices": []
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "TB3\n",
-              "description": "Authentication boundary. self.current_user is set once on login and never re-checked. Anonymous below, authenticated above (or vice versa depending on layout).",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "TB3"
-            ],
-            "id": "ca7eea7b-dadf-4c16-b169-53bb001062ef",
-            "source": {
-              "x": 290,
-              "y": 210
-            },
-            "target": {
-              "x": 650,
-              "y": 210
-            },
-            "vertices": []
-          },
-          {
             "shape": "flow",
             "attrs": {
               "line": {
@@ -1212,19 +1165,37 @@
               "threats": [
                 {
                   "id": "646c2bdc-9722-4ba6-8ad3-db1be55f81c7",
-                  "title": "New STRIDE threat",
+                  "title": "Spoofing: account creation under any name",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Player 1 can create accounts under any chosen username with no identity proof. Combined with later DB read, the attacker controls a known credential pair.",
+                  "mitigation": "R1",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "9a7672a4-9f9b-4dd9-8e17-b173457c4bc9",
+                  "title": "Information Disclosure: cleartext password crosses TB-1",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Password travels in cleartext from the keyboard into the process before being hashed by P2.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "DF1"
@@ -1244,8 +1215,863 @@
                 "y": 110
               },
               {
-                "x": 230,
+                "x": 220,
                 "y": 80
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF2\n",
+              "description": "password (in-process to hash function)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "89db5779-b619-4285-8a01-c65e1a2db52e",
+                  "title": "Information Disclosure: cleartext in process memory",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Cleartext password sits briefly in process memory before hashing. Local attacker with debugger access only.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF2"
+            ],
+            "id": "03757178-5a8f-44dd-b2a9-1a5a7995a104",
+            "source": {
+              "cell": "1fc4eabe-7ecf-44cd-9353-e9fb0def769c",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "72a8aaeb-9a7a-48a9-8f08-5311145c3644",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF3\n",
+              "description": "login attempt (no rate-limit)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "d19fc186-ba7c-4768-a6af-4fc5a4264f67",
+                  "title": "Spoofing: brute-force login unrestricted",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "No rate-limit on the login dialog. A held-down key or script can run brute-force credential attempts indefinitely.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "b14ea32f-3dd0-4d3f-b9cc-9d7c22ff9b8d",
+                  "title": "Denial of Service: login dialog floodable",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Continuous rapid login attempts can render the GUI unresponsive.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 2
+              }
+            },
+            "labels": [
+              "DF3"
+            ],
+            "id": "b3a675a3-1cf3-4402-8350-7c232dd3607a",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "a4548df9-2258-433b-83b6-d6053b23e127"
+            },
+            "target": {
+              "cell": "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
+            },
+            "vertices": [
+              {
+                "x": 220,
+                "y": 30
+              },
+              {
+                "x": 360,
+                "y": 30
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB1\n",
+              "description": "User to App boundary. Separates external entities (keyboard input) from the running Python process.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "TB1"
+            ],
+            "id": "8e11a969-5600-44fc-8fe3-2f4a2df56e4c",
+            "source": {
+              "x": 190,
+              "y": 0
+            },
+            "target": {
+              "x": 190,
+              "y": 420
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB2\n",
+              "description": "App to Filesystem boundary. Separates the running process from the local filesystem.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "TB2"
+            ],
+            "id": "34f5fbf7-b954-4d6c-afaf-c97fac313612",
+            "source": {
+              "x": 840,
+              "y": 0
+            },
+            "target": {
+              "x": 840,
+              "y": 410
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF4\n",
+              "description": "candidate password to hash function",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "202e9244-6fc4-48ae-b2ab-2c125b13a3df",
+                  "title": "Information Disclosure: cleartext password in memory",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Candidate password lives in process memory during verify. Local risk only.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF4"
+            ],
+            "id": "8926d7d7-cf71-4b34-a110-2420a19a7e16",
+            "source": {
+              "cell": "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "target": {
+              "cell": "72a8aaeb-9a7a-48a9-8f08-5311145c3644",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF5\n",
+              "description": "INSERT user (MD5 hash) — written to SQLite",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ac789ed3-ef1f-42a4-9d5b-21bb7c564f3d",
+                  "title": "Tampering: any local user can rewrite hash rows",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "tictactoe.db is world-readable and writable. Anyone with file access can replace a user's hash and log in as them.",
+                  "mitigation": "R1, R9",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "id": "6187304a-76d9-45ef-adbf-b33648b99dff",
+                  "title": "Information Disclosure: MD5 hashes crackable offline",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Once the DB is read, hashcat -m 0 recovers passwords in seconds on a single GPU.",
+                  "mitigation": "R1",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF5"
+            ],
+            "id": "150935f6-5a9a-4b43-aede-47ba7114c613",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "a4548df9-2258-433b-83b6-d6053b23e127"
+            },
+            "target": {
+              "cell": "114edae1-dbaa-439a-aebc-fed420f10b9e",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": [
+              {
+                "x": 250,
+                "y": 10
+              },
+              {
+                "x": 710,
+                "y": 10
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF6",
+              "description": "SELECT password_hash WHERE username = ?",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "3585440b-db9c-4ebc-a37b-b3cf053adf70",
+                  "title": "Information Disclosure: hash crosses TB-2",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Password hash is read from the filesystem back into the process on every login attempt.",
+                  "mitigation": "R1, R9",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF"
+            ],
+            "id": "9fb32a98-9c7b-47ba-a176-805b33d384fa",
+            "source": {
+              "cell": "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "114edae1-dbaa-439a-aebc-fed420f10b9e",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": [
+              {
+                "x": 680,
+                "y": 30
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF7\n",
+              "description": "anonymous SELECT (scoreboard accessible without login)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b36bbe15-412e-4f4b-9033-bf54dcd87f8e",
+                  "title": "Information Disclosure: anonymous account enumeration",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Scoreboard is shown to unauthenticated users from the main menu, leaking the existence and activity of every account.",
+                  "mitigation": "R3",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF7"
+            ],
+            "id": "6afb6da1-10a9-4fe8-b2c2-98ee1d926efd",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "bc43cbd7-a975-44ec-a9eb-09e814be2473"
+            },
+            "target": {
+              "cell": "10cbfd64-1ff5-4ebd-b828-e84f3161f402",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": [
+              {
+                "x": 540,
+                "y": 130
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF8\n",
+              "description": "Player 2 cleartext password handed to Player 1's session — design flaw, Issue #3",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e8860926-970a-4273-85a1-0cd4ca6ed089",
+                  "title": "Spoofing: credential disclosed to third party",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Player 2 types their cleartext password into a dialog owned by Player 1's already-authenticated process. Player 1 can install a keylogger, swap the dialog, or read the value via a debugger.",
+                  "mitigation": "R2",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "d8f3bb66-3d35-4c2a-9000-3426883d2607",
+                  "title": "Tampering: dialog can be replaced",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "The askstring dialog runs in Player 1's process. Nothing prevents Player 1 from replacing it with a fake form before Player 2 types.",
+                  "mitigation": "R2",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF8"
+            ],
+            "id": "2b2ef2ee-b61a-49fc-a525-59fad688bc58",
+            "source": {
+              "cell": "e40755ec-7806-40d8-b017-41a1e7898385",
+              "port": "bc43cbd7-a975-44ec-a9eb-09e814be2473"
+            },
+            "target": {
+              "cell": "99d32f53-605f-48bd-b7e7-5483d2729ea0",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": [
+              {
+                "x": 230,
+                "y": 329
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF9\n",
+              "description": "opens opponent dialog (post-auth handoff)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF9"
+            ],
+            "id": "a51caeb2-f731-40c2-b90e-2aea859840aa",
+            "source": {
+              "cell": "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "target": {
+              "cell": "99d32f53-605f-48bd-b7e7-5483d2729ea0",
+              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
+            },
+            "vertices": [
+              {
+                "x": 380,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF10\n",
+              "description": "Player 2 click (O turn)\n",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF10"
+            ],
+            "id": "5c446ba9-ea3b-40c9-8db0-d5b71958089c",
+            "source": {
+              "cell": "e40755ec-7806-40d8-b017-41a1e7898385",
+              "port": "236bd5a1-0741-4654-b307-8b3bc8c49818"
+            },
+            "target": {
+              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 380
+              },
+              {
+                "x": 420,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF11\n",
+              "description": "Player 1 click (X turn)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF11"
+            ],
+            "id": "85a2cd52-e2b0-4233-a690-4c69d1d44627",
+            "source": {
+              "cell": "9c137ea2-5cf1-4faf-9724-8e1e9ac64629",
+              "port": "236bd5a1-0741-4654-b307-8b3bc8c49818"
+            },
+            "target": {
+              "cell": "1c559c28-29ca-45ee-995d-72d65756edfd",
+              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB3\n",
+              "description": "Authentication boundary. self.current_user is set once on login and never re-checked. Anonymous below, authenticated above (or vice versa depending on layout).",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "TB3"
+            ],
+            "id": "ca7eea7b-dadf-4c16-b169-53bb001062ef",
+            "source": {
+              "x": 220,
+              "y": 210
+            },
+            "target": {
+              "x": 660,
+              "y": 210
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF12",
+              "description": "opponent password forwarded to authenticate_user",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "9b3d6498-bf03-401c-b157-e0f5c1fc6122",
+                  "title": "Spoofing: password handed back across auth boundary",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Post-auth process P5 forwards Player 2's cleartext password back into pre-auth process P3. Player 1's session can intercept or replace the value before forwarding.",
+                  "mitigation": "R2",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF1"
+            ],
+            "id": "356e408d-a0f9-4b77-adaf-9d8366cc0bb9",
+            "source": {
+              "cell": "99d32f53-605f-48bd-b7e7-5483d2729ea0",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "d2feeec4-1e28-43a3-af8b-00be81b2a711",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "vertices": [
+              {
+                "x": 440,
+                "y": 250
               }
             ]
           },
@@ -1492,7 +2318,7 @@
           {
             "position": {
               "x": 389,
-              "y": 391
+              "y": 411
             },
             "size": {
               "width": 60,
@@ -1612,7 +2438,7 @@
           {
             "position": {
               "x": 389,
-              "y": 483
+              "y": 513
             },
             "size": {
               "width": 60,
@@ -2107,6 +2933,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 13
   }
 }
