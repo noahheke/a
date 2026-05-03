@@ -2684,6 +2684,273 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF20\n",
+              "description": "tampered state restored to play_game",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "fdbf8d51-48c6-4dbc-90f2-e25c1016c833",
+                  "title": "Tampering: restored state may be attacker-chosen",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Restored state may contain attacker-chosen board, players, or current_player.",
+                  "mitigation": "R4",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF20"
+            ],
+            "id": "d0b8ec48-dd72-43a7-9194-6b9e976ed1ef",
+            "source": {
+              "cell": "f4a4fb8b-b842-457f-87c2-fded538b615b",
+              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
+            },
+            "target": {
+              "cell": "68cc98e2-bf2e-49bc-932e-502dad1dec43",
+              "port": "484f7eb0-3e97-4b3e-a7b1-ea04eca39153"
+            },
+            "vertices": [
+              {
+                "x": 330,
+                "y": 490
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF21\n",
+              "description": "CREATE TABLE IF NOT EXISTS (init)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "DF21"
+            ],
+            "id": "9b174541-10d1-4306-88a1-53e457d92479",
+            "source": {
+              "cell": "ed62e184-e1be-472f-89b9-fb69ecd2706f",
+              "port": "09d02247-f870-4b5f-a436-f8dd40714b14"
+            },
+            "target": {
+              "cell": "114edae1-dbaa-439a-aebc-fed420f10b9e",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": [
+              {
+                "x": 800,
+                "y": 130
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF22\n",
+              "description": "mkdir savegames/ (init)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "337e3986-f99d-420c-9ded-0264f383c1b1",
+                  "title": "Information Disclosure: default umask exposes saves",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Folder is created with the application's default umask, typically 755 on Linux. Other local users can read every player's save files.",
+                  "mitigation": "R9",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF22"
+            ],
+            "id": "370fb069-59d9-41ef-947f-ef30d319f863",
+            "source": {
+              "cell": "ed62e184-e1be-472f-89b9-fb69ecd2706f",
+              "port": "d75db94b-bad9-4472-b662-e40993c1f7df"
+            },
+            "target": {
+              "cell": "80d47d97-ee5e-43da-9284-179fa44a19d5",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": [
+              {
+                "x": 750,
+                "y": 280
+              },
+              {
+                "x": 820,
+                "y": 329
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DF23\n",
+              "description": "GUI feedback / messages (both players see all messagebox content)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "0c90f6ca-6ef5-4d48-a17c-1b329bc36938",
+                  "title": "Information Disclosure: no per-player filtering on GUI",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Messagebox contents are visible to both players regardless of which user the message concerns.",
+                  "mitigation": " ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "DF23"
+            ],
+            "id": "e73d2dd2-1278-4a34-beb5-88b04eb18c47",
+            "source": {
+              "cell": "bdca9cbc-1453-4f2c-8f2c-9b070ac80a4d",
+              "port": "0f730be1-357f-4a6c-ae2c-af1717fab09d"
+            },
+            "target": {
+              "cell": "ef064b0d-b190-4699-a6be-4be7b3ae3b6a",
+              "port": "7aedf392-9b74-4b4d-ae0c-a599af61195e"
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 511,
               "y": 299
@@ -3541,6 +3808,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 22
+    "threatTop": 25
   }
 }
