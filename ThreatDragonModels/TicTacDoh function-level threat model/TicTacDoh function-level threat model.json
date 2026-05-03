@@ -1,0 +1,16 @@
+{
+  "version": "2.6.1",
+  "summary": {
+    "title": "TicTacDoh function-level threat model",
+    "owner": "Noah Heke",
+    "description": "Local two-player Python tkinter desktop application. SQLite-backed user accounts, JSON-backed saved games. Two players share the same physical PC and same Python process. No network, no server.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
